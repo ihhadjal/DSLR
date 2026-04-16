@@ -96,11 +96,17 @@ def describe(feature):
         Max(values),
     ]
 
-def main():
+def build_data_frame():
     df = pd.DataFrame(index=indexes)
 
     for course in COURSES:
         df[course] = describe(data[course])
+
+    return df
+
+def main():
+
+    df = build_data_frame()
 
     print(df)
 
